@@ -5,12 +5,17 @@ In this lab, you will modify a simple link checking app to use ajax. The basic f
 ## Objectives
 
 * Make all of the tests pass (both rails and jasmine)
-* The app should never refresh the page
-	* Make the index route the root.
-	* The user should be able to submit a site to check on the index page
+* Get practice using jQuery.post
+
+
+## Instructions
+
+* The user should never have to refresh the page
+	* Make the root route the index action.
+	* The user should be able to submit a new site from the index.  This should be handled using an ajax post.
+	* The input and button for submitting a new site should be added dynamically in javascript
 	* The result of create should be appended to the end of the table
-	* 
-* The request to create a site 
+* Make sure you seed your database.  That should give you some sample data to work with.
 
 ## Hints
 
