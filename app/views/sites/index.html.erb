@@ -1,0 +1,16 @@
+<h3>Sites</h3>
+
+<table>
+	<tr>
+    <th>Link</th>
+    <th>HTTP Response Code</th>
+  </tr>
+
+<% @sites.each do |site| %>
+  <tr>
+  	<td><%= link_to site.url, site.url %></td>
+  	<td><%= site.http_response %></td>
+  </tr>
+<% end %>
+
+</table>
