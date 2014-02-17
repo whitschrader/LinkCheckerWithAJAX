@@ -1,21 +1,10 @@
-<h4>Link Checker Results for <%= link_to @site.url, @site.url %></h4>
+<h4>Link Show Page for <%= link_to @site.url, @site.url %></h4>
 
-<table>
-	<tr>
-		<th>Link</th><th>HTTP Response Code</th>
-	</tr>
-	<% if @links %>
-	  
-	  <% @links.each do |link| %>
-	    <tr>
-	    	<td><%= link_to link.url %></td>
-	    	<% if link.http_response >= 400 %>
-	    	  <td style="color:red">
-	    	<% else %>
-	    	  <td style="color:green">
-	    	<% end %>
-	    	<%= link.http_response %></td>
-	    </tr>
-	  <% end %>
-	<% end %>
-</table>
+<h6>Response Code:
+<% if @site.http_response >= 400 %>
+	<span style="color:red">
+<% else %>
+	<span style="color:green">
+<% end %>
+<%= @site.http_response %>
+</span></h6>

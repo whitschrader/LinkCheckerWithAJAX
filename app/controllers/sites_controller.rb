@@ -28,8 +28,7 @@ class SitesController < ApplicationController
 
   def show
     @site = Site.find(params[:id])
-
-    @links = @site.links
+    
     respond_to do |f|
       f.html
       f.json { render :json => @site }
