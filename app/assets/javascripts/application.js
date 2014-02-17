@@ -15,6 +15,44 @@
 //= require turbolinks
 //= require_tree .
 
+
+var Callbacks = (function() {
+
+  var createSite = function(url, data) {
+       // Make .ajax request here
+  };
+
+  var addNewUrlToTable = function(url, httpResponse) {
+    // Actually add the url and response code to the table
+  };
+  return {
+    postSuccessHandler : function(response) {
+      // Call addNewUrlToTable and insert the results
+      addNewUrlToTable('','');
+
+    },
+
+    postFailureHandler : function(jqXHR) {
+      // The request failed.
+    },
+
+    onSubmitSiteClickHandler : function() {
+      var site = $('#siteInput').val();
+      
+      // We have the site, now call create site
+      // to make the request
+    },
+    createSite : createSite,
+    
+    addNewUrlToTable : addNewUrlToTable
+  };  
+})();
+
 $(window).load(function() {
-  alert("Put your code in app/assets/javascripts/application.js");
+  $("<label>New Site</label><br /><input type=\"text\" id=\"siteInput\"></input><button id=\"checkSite\">Check Site</button>").insertBefore("#siteTable");
+
+  // Adding the onSubmitSiteClickHandler to kick off the ajax
+  // request      
+  $('#checkSite').click(Callbacks.onSubmitSiteClickHandler);
+
 });
