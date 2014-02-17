@@ -19,8 +19,8 @@ In this lab, you will modify a simple link checking app to use ajax. The basic f
 
 ## Bonus
 
-Add a delete button that issues an http delete on a specific row
+Add a delete button that issues an http delete on a specific row.  This action also requires an auth token.
 
-## Extra Bonus
+## Extra Bonus (Difficult)
 
-Add a shuffle button that will remove all the table rows from the table, make an http GET to refresh the list of tables, then repopulate the table in random order.
+Add a shuffle button that will remove all the table rows from the table, make an http GET to refresh the list of sites, then repopulate the table in a random order.  This is difficult.  Check out this post for help: [Shuffle Array](http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array).
