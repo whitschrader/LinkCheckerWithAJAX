@@ -1,9 +1,12 @@
-# LinkChecker
+# LinkCheckerWithAJAX Lab
 
-This is a demo application.  The basic functionality is a site that allows the user to enter a url.  The LinkChecker will then parse the contents of the url entered using nokogiri, get all the link tags in the page, and check if the links are valid (returns a 200 or 300).
+This is a demo application.  The basic functionality is a site that allows the user to enter a url.  The site will make a get request on the url and save the http response code.
 
 ## Objectives
 
-* Show a use case for doing work in the background
-* Demonstrate Redis and Sidekiq to fix the problem
+* Make all of the tests pass (both rails and jasmine)
+* Make the app all work on a single page
+* Creating the site in the DB and updating the new site once it is saved should be done with ajax and javascript
+
+
 
