@@ -7,7 +7,7 @@ class SitesController < ApplicationController
     @sites = Site.all
     respond_to do |f|
       f.html
-      f.json { render :json => @sites }
+      f.json { render :json => @sites, only: [:id, :url, :http_response] }
     end
   end
 
@@ -31,7 +31,7 @@ class SitesController < ApplicationController
     
     respond_to do |f|
       f.html
-      f.json { render :json => @site }
+      f.json { render :json => @site, only: [:url, :http_response] }
     end
   end
 

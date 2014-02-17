@@ -1,12 +1,12 @@
 <h3>Sites</h3>
 
-<table>
+<table id='siteTable'>
 	<tr>
     <th>Link</th>
     <th>HTTP Response Code</th>
   </tr>
 
-<% @sites.each do |site| %>
+<% @sites.each_with_index do |site, index| %>
   <tr>
   	<td><%= link_to site.url, site.url %></td>
   	<td><%= site.http_response %></td>
