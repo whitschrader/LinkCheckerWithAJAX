@@ -25,25 +25,32 @@ var Callbacks = (function() {
   var addNewUrlToTable = function(url, httpResponse) {
     // Actually add the url and response code to the table
   };
-  return {
-    postSuccessHandler : function(response) {
+
+  var postSuccessHandler = function(response) {
       // Call addNewUrlToTable and insert the results
       addNewUrlToTable('','');
 
-    },
+  };
 
-    postFailureHandler : function(jqXHR) {
+  var postFailureHandler  = function(jqXHR) {
       // The request failed.
-    },
+  };
 
-    onSubmitSiteClickHandler : function() {
+  var onSubmitSiteClickHandler =  function() {
       var site = $('#siteInput').val();
       
       // We have the site, now call create site
       // to make the request
-    },
+  };
+  return {
+    postSuccessHandler : postSuccessHandler,
+
+
+    postFailureHandler : postFailureHandler,
+
+    onSubmitSiteClickHandler : onSubmitSiteClickHandler,
     createSite : createSite,
-    
+
     addNewUrlToTable : addNewUrlToTable
   };  
 })();
