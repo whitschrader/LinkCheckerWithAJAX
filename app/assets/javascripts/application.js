@@ -1,3 +1,14 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15,36 +26,47 @@
 //= require turbolinks
 //= require_tree .
 
-
 var Callbacks = (function() {
 
-  var createSite = function(url, data) {
-       // Make .ajax request here
+  var createSite = function(endpoint, url) {
+    var authParam = $('meta[name=csrf-param]').attr('content');
+    var authToken = $('meta[name=csrf-token]').attr('content'); 
+
+    
+    url[authParam] = authToken;
+
+    $.ajax({type: "post", url: endpoint, data: url}).then(postSuccessHandler, postFailureHandler);
+    //make AJAX request
   };
 
   var addNewUrlToTable = function(url, httpResponse) {
     // Actually add the url and response code to the table
+    $("table#siteTable").append("<tr><td>" + url + "</td><td>" + httpResponse + "</td></tr>");
+
   };
 
   var postSuccessHandler = function(response) {
+      Callbacks.addNewUrlToTable(response.url, 200);
+
+    
       // Call addNewUrlToTable and insert the results
-      addNewUrlToTable('','');
+      // addNewUrlToTable('','');
 
   };
 
-  var postFailureHandler  = function(jqXHR) {
-      // The request failed.
+  var postFailureHandler  = function(response) {
+      alert("Failed" + response);
   };
 
   var onSubmitSiteClickHandler =  function() {
       var site = $('#siteInput').val();
+
+      var data = { site: { url: site } };
       
-      // We have the site, now call create site
-      // to make the request
+      Callbacks.createSite("http://localhost:3000/sites.json", data);
   };
   return {
     postSuccessHandler : postSuccessHandler,
-
 
     postFailureHandler : postFailureHandler,
 
